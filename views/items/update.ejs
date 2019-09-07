@@ -1,0 +1,23 @@
+<table>
+    <form action="/update" method="POST">
+        <% data.forEach(function(item) {%>
+            <tr>
+                <td><input type="text" name="name" value="<%= item.name%>" ></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="quantity" value="<%= item.qty%>"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="amount" value="<%= item.amount%>"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit" name="update" value="<%= item.id%>">
+                        Update
+                    </button>
+                </td>
+            </tr>
+        <% })%>
+    </form>
+    
+</table>

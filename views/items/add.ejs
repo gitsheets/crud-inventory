@@ -1,0 +1,26 @@
+
+<% if(message != '') { %>
+    <p>Successfully added!<p/>
+<% message = ''} %>
+
+<form action="/add" method="POST" >
+    <table>
+        <tr>
+            <td><input type="text" name="name" placeholder="Name"></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="qty" placeholder="Quantity"></td>
+        </tr>
+         <tr>
+            <td><input type="text" name="amount" placeholder="Amount"></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Add</button></td>
+        </tr>
+        
+    </table>
+</form>
+
+<form action="/" method="GET">
+    <input type="submit" value="Back">
+</form>

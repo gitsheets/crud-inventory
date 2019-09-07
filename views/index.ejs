@@ -1,0 +1,34 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>
+
+        </title>
+</head>
+    <body>
+        <% if(result!= '') {%>
+        <p><%= result%></p>
+        <% } %>
+            <table>
+            <% data.forEach(function(item) {%>
+            <tr>
+                <td><%= item.name%></td>
+                <td><%= item.qty%></td>
+                <td><%= item.amount%></td>
+                <td>
+                    <form action="/delete" method="POST">
+                        <button type="submit" name="delete" value="<%= item.id%>">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/openupdate" method="POST">
+                        <button type="submit" name="update" value="<%= item.id%>">Update</button>
+                    </form>
+                </td>
+            </tr>
+            <% })%>
+          </table>
+       <button type="button"><a href="/add">Add</a></button>
+      
+    </body>
+</html>
