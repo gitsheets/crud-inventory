@@ -2,7 +2,6 @@ const mysql = require ('mysql');
 const express = require ('express');
 const bodyparser = require('body-parser');
 const {check, validationResult} = require('express-validator');
-var config = require('config');
 var methodOverride = require('method-override');
 var app = express();
 
@@ -50,6 +49,8 @@ app.use(expressSession({
     saveUninitialized: true,
     cookie: { maxAge: 60000}
 }));
+
+app.use(express.static('public'));
 
 app.use(flash());
 

@@ -4,7 +4,6 @@ const mysql = require ('mysql');
 const {check, validationResult} = require('express-validator');
 var app = express();
 
-
 var mysqlConnection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -12,6 +11,7 @@ var mysqlConnection = mysql.createConnection({
     database: 'inventory'
 });
 
+// Get all items and render to index.ejs
 app.get('/', function(req, res){
     mysqlConnection.query('Select * from items', (err, rows, fields) => 
     {
@@ -25,7 +25,7 @@ app.get('/', function(req, res){
 });
 });
 
-
+// Render to views/items/add.ejs
 app.get('/add', function(req, res, next){
     res.render('items/add',{
         title: 'Add new user',
@@ -36,6 +36,8 @@ app.get('/add', function(req, res, next){
     });
 });
 
+
+// Insert Query
 app.post('/add', function(req, res, next){
 
     var errors = validationResult(req);
@@ -54,11 +56,10 @@ app.post('/add', function(req, res, next){
         else
             console.log(err);
     });
-   
 
 });
 
-
+// Delete query
 app.post('/delete', function(req, res, next){
     mysqlConnection.query('delete from items where id = ?', [req.body.delete], (err, rows, fields) => 
         {
@@ -79,6 +80,7 @@ app.post('/delete', function(req, res, next){
     });
 });
 
+// Render to views/items/update.ejs
 app.post('/openupdate', function(req, res, next){
     mysqlConnection.query('Select * from items where id = ?',[req.body.update], (error, rws, flds) => 
     {
@@ -92,7 +94,7 @@ app.post('/openupdate', function(req, res, next){
     });
 })
 
-
+// Update Query
 app.post('/update', function(req, res, next){
 
     var item = {

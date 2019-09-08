@@ -1,15 +1,17 @@
-<!Doctype html>
-<html>
-    <head>
-        <title>
 
-        </title>
-</head>
-    <body>
+      
+
+        <%- include layouts/header.ejs%>
         <% if(result!= '') {%>
-        <p><%= result%></p>
-        <% } %>
+            <p><%= result%></p>
+        <% } %> 
             <table>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th colspan="2">Actions</th>
+            </tr>
             <% data.forEach(function(item) {%>
             <tr>
                 <td><%= item.name%></td>
@@ -28,7 +30,6 @@
             </tr>
             <% })%>
           </table>
-       <button type="button"><a href="/add">Add</a></button>
-      
-    </body>
-</html>
+       <button type="button"><a href="/add" style="text-decoration: none">Add</a></button>
+          
+       <%- include layouts/footer.ejs%>

@@ -1,7 +1,17 @@
 
+<%- include ../layouts/header.ejs%>
 <% if(message != '') { %>
     <p>Successfully added!<p/>
 <% message = ''} %>
+
+<form action="/" method="GET">
+    <table>
+        <tr>
+            <td>
+             <input type="submit" value="Back"></td>
+        </tr>
+    </table>
+</form>
 
 <form action="/add" method="POST" >
     <table>
@@ -21,6 +31,6 @@
     </table>
 </form>
 
-<form action="/" method="GET">
-    <input type="submit" value="Back">
-</form>
+
+
+<%- include ../layouts/footer.ejs%>

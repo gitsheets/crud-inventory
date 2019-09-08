@@ -1,3 +1,15 @@
+<%- include ../layouts/header.ejs%>
+
+<form action="/" method="GET">
+    <table>
+        <tr>
+            <td>
+             <input type="submit" value="Back"></td>
+        </tr>
+    </table>
+</form>
+
+
 <table>
     <form action="/update" method="POST">
         <% data.forEach(function(item) {%>
@@ -21,3 +33,6 @@
     </form>
     
 </table>
+
+
+<%- include ../layouts/footer.ejs%>
